@@ -115,7 +115,7 @@ Row 1 of the dataset: P(diabetes) = 71%, answer *High risk*. The model's smalles
 
 ---
 
-## Things this project found that you might not expect
+## Things this project found 
 
 * **Fixing the hidden missing values barely changed accuracy.** In PIMA, a 0 in Glucose, Blood Pressure, Skin Thickness, Insulin or BMI means "not measured" (48.7% of insulin values and 29.6% of skin thickness values). Treating them properly raised AUC from 0.830 to 0.836, which is smaller than the noise (SD 0.03). It is still the correct thing to do, but it is not where the gains are. See `results/tables/06_preprocessing_ablation.csv`.
 * **The original cleaning leaked a little.** Filling missing values with the mean of the *whole* dataset before splitting lets test rows influence training. The extension imputes inside each cross-validation fold instead. The measured effect was small here, but the habit matters.
@@ -123,14 +123,6 @@ Row 1 of the dataset: P(diabetes) = 71%, answer *High risk*. The model's smalles
 * **Performance falls with age.** AUC is 0.86 for ages 21-29 but 0.74 for 50+, and sensitivity at 0.5 is only 45% in the youngest group. The groups are small (89 to 396 patients), so read this as a warning, not a measurement.
 
 ---
-
-## Limitations (please read)
-
-* **Small, old, narrow data.** 768 women of one population, collected decades ago. Results will not transfer to other groups without re-validation.
-* **Association, not causation.** The what-if analysis describes what the *model* learned. It does not prove that lowering a number would change a person's health.
-* **The coverage guarantee is on average.** Over many splits coverage averages 90.6% / 90.7%, but a single small test set can fall lower (the worst of the 100 splits was about 78% for non-diabetic and 80% for diabetic patients).
-* **A large share is sent for follow-up.** Because 90% of diabetic patients must be kept inside the answer set, 62% of patients get *High risk* or *Uncertain* (precision of that group is about 51%). That is the price of the guarantee on this dataset.
-* **Not validated clinically.** No external test set, no prospective study.
 
 ---
 
@@ -213,7 +205,7 @@ print(model.what_if({...}, goal="low")["changes"])
 
 ---
 
-## How the extension works (plain English)
+## How it works 
 
 **Conformal prediction.** A normal classifier always says "diabetic" or "not diabetic". Here, the model's predicted probabilities for the training patients are collected out-of-fold (each patient is scored by a model that never saw them). For each class separately we find the probability cut-off that keeps 90% of that class's patients on the right side. A new patient then falls in one of three zones: *Low risk*, *High risk*, or in the overlap, *Uncertain*. The guarantee is distribution-free: it needs no assumption about the model being correct, only that new patients look like the training ones. Doing it per class matters because diabetic patients are only 35% of the data and are the ones we must not miss.
 
@@ -233,8 +225,4 @@ print(model.what_if({...}, goal="low")["changes"])
 
 PIMA Indians Diabetes dataset: originally from the National Institute of Diabetes and Digestive and Kidney Diseases. Please cite Smith, J.W., Everhart, J.E., Dickson, W.C., Knowler, W.C., Johannes, R.S. (1988), *Using the ADAP learning algorithm to forecast the onset of diabetes mellitus*, Proc. Symp. on Computer Applications and Medical Care, 261-265. See `data/README.md`.
 
-Original course project: CS 403/603 Machine Learning, Indian Institute of Technology Indore. Extension, tests and demo added afterwards.
 
-## License
-
-MIT, see `LICENSE`. The dataset keeps its own terms (see `data/README.md`).
