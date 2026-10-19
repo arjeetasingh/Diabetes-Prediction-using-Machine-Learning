@@ -1,0 +1,9 @@
+step,added,cv_auc,features
+1,Glucose,0.7873651292802236,Glucose
+2,BMI,0.8095992313067786,"Glucose, BMI"
+3,Pregnancies,0.825101677148847,"Glucose, BMI, Pregnancies"
+4,DiabetesPedigreeFunction,0.8306680642907057,"Glucose, BMI, Pregnancies, DiabetesPedigreeFunction"
+5,Insulin,0.8313354297693921,"Glucose, BMI, Pregnancies, DiabetesPedigreeFunction, Insulin"
+6,BloodPressure,0.8319895178197065,"Glucose, BMI, Pregnancies, DiabetesPedigreeFunction, Insulin, BloodPressure"
+7,Age,0.8313913347309573,"Glucose, BMI, Pregnancies, DiabetesPedigreeFunction, Insulin, BloodPressure, Age"
+8,SkinThickness,0.8307938504542278,"Glucose, BMI, Pregnancies, DiabetesPedigreeFunction, Insulin, BloodPressure, Age, SkinThickness"

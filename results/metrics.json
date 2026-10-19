@@ -1,0 +1,279 @@
+{
+  "n_patients": 768,
+  "prevalence": 0.3489583333333333,
+  "quick_run": false,
+  "baseline_seed42": {
+    "accuracy": 0.7402597402597403,
+    "auc": 0.8132231404958677,
+    "precision": 0.631578947368421,
+    "recall": 0.6545454545454545,
+    "confusion": [
+      [
+        78,
+        21
+      ],
+      [
+        19,
+        36
+      ]
+    ]
+  },
+  "split_variability": {
+    "n_splits": 200,
+    "accuracy_mean": 0.773538961038961,
+    "accuracy_sd": 0.02859083353183627,
+    "accuracy_p2_5": 0.7272727272727273,
+    "accuracy_p97_5": 0.831331168831169,
+    "recall_mean": 0.5739262252699517,
+    "auc_mean": 0.8319133222193882
+  },
+  "model_comparison": [
+    {
+      "model": "Random Forest",
+      "accuracy_mean": 0.7641,
+      "accuracy_sd": 0.0268,
+      "auc_mean": 0.8368,
+      "auc_sd": 0.0296,
+      "recall_mean": 0.5962,
+      "recall_sd": 0.0579,
+      "precision_mean": 0.6891,
+      "precision_sd": 0.0539,
+      "brier_mean": 0.1558,
+      "brier_sd": 0.0134
+    },
+    {
+      "model": "Logistic Regression",
+      "accuracy_mean": 0.7677,
+      "accuracy_sd": 0.0329,
+      "auc_mean": 0.8361,
+      "auc_sd": 0.0309,
+      "recall_mean": 0.5574,
+      "recall_sd": 0.0681,
+      "precision_mean": 0.7172,
+      "precision_sd": 0.0693,
+      "brier_mean": 0.157,
+      "brier_sd": 0.0164
+    },
+    {
+      "model": "SVM (RBF)",
+      "accuracy_mean": 0.7612,
+      "accuracy_sd": 0.0278,
+      "auc_mean": 0.8298,
+      "auc_sd": 0.0282,
+      "recall_mean": 0.5484,
+      "recall_sd": 0.055,
+      "precision_mean": 0.7053,
+      "precision_sd": 0.0623,
+      "brier_mean": 0.1621,
+      "brier_sd": 0.0142
+    },
+    {
+      "model": "KNN (k=15)",
+      "accuracy_mean": 0.7575,
+      "accuracy_sd": 0.029,
+      "auc_mean": 0.8264,
+      "auc_sd": 0.0299,
+      "recall_mean": 0.5672,
+      "recall_sd": 0.0523,
+      "precision_mean": 0.6885,
+      "precision_sd": 0.0638,
+      "brier_mean": 0.1604,
+      "brier_sd": 0.0122
+    },
+    {
+      "model": "Gradient Boosting",
+      "accuracy_mean": 0.7581,
+      "accuracy_sd": 0.0328,
+      "auc_mean": 0.8254,
+      "auc_sd": 0.0286,
+      "recall_mean": 0.6113,
+      "recall_sd": 0.0605,
+      "precision_mean": 0.6704,
+      "precision_sd": 0.0613,
+      "brier_mean": 0.1628,
+      "brier_sd": 0.016
+    }
+  ],
+  "ablation": [
+    {
+      "variant": "A. Original recipe (insulin>425 removed, full-data mean fill)",
+      "accuracy_mean": 0.7711,
+      "accuracy_sd": 0.0298,
+      "auc_mean": 0.8299,
+      "auc_sd": 0.0305,
+      "recall_mean": 0.5686,
+      "recall_sd": 0.0564,
+      "precision_mean": 0.7197,
+      "precision_sd": 0.063,
+      "brier_mean": 0.1576,
+      "brier_sd": 0.0154
+    },
+    {
+      "variant": "B. Zeros kept as real values (no cleaning)",
+      "accuracy_mean": 0.7716,
+      "accuracy_sd": 0.0317,
+      "auc_mean": 0.8299,
+      "auc_sd": 0.0302,
+      "recall_mean": 0.5664,
+      "recall_sd": 0.0541,
+      "precision_mean": 0.7234,
+      "precision_sd": 0.0711,
+      "brier_mean": 0.1577,
+      "brier_sd": 0.0152
+    },
+    {
+      "variant": "C. Hidden zeros -> missing, median fill inside CV (used here)",
+      "accuracy_mean": 0.7677,
+      "accuracy_sd": 0.0329,
+      "auc_mean": 0.8361,
+      "auc_sd": 0.0309,
+      "recall_mean": 0.5574,
+      "recall_sd": 0.0681,
+      "precision_mean": 0.7172,
+      "precision_sd": 0.0693,
+      "brier_mean": 0.157,
+      "brier_sd": 0.0164
+    },
+    {
+      "variant": "D. C plus insulin>425 removed",
+      "accuracy_mean": 0.7672,
+      "accuracy_sd": 0.0316,
+      "auc_mean": 0.836,
+      "auc_sd": 0.0311,
+      "recall_mean": 0.5612,
+      "recall_sd": 0.0693,
+      "precision_mean": 0.7135,
+      "precision_sd": 0.0651,
+      "brier_mean": 0.157,
+      "brier_sd": 0.0164
+    },
+    {
+      "variant": "E. C plus missing-value indicator columns",
+      "accuracy_mean": 0.7711,
+      "accuracy_sd": 0.0314,
+      "auc_mean": 0.8332,
+      "auc_sd": 0.0281,
+      "recall_mean": 0.5731,
+      "recall_sd": 0.0525,
+      "precision_mean": 0.7179,
+      "precision_sd": 0.0692,
+      "brier_mean": 0.1574,
+      "brier_sd": 0.0156
+    }
+  ],
+  "calibration": [
+    {
+      "model": "Logistic Regression",
+      "brier": 0.1573,
+      "log_loss": 0.4794,
+      "ece": 0.0433
+    },
+    {
+      "model": "Random Forest (raw)",
+      "brier": 0.157,
+      "log_loss": 0.4745,
+      "ece": 0.0271
+    },
+    {
+      "model": "Random Forest (sigmoid-calibrated)",
+      "brier": 0.1564,
+      "log_loss": 0.4765,
+      "ece": 0.0367
+    }
+  ],
+  "threshold": {
+    "default_0.5": {
+      "threshold": 0.5,
+      "tp": 149,
+      "fp": 60,
+      "tn": 440,
+      "fn": 119,
+      "sensitivity": 0.5559701492537313,
+      "specificity": 0.88,
+      "ppv": 0.7129186602870813,
+      "npv": 0.7871198568872988,
+      "accuracy": 0.7669270833333334
+    },
+    "screening_0.23": {
+      "threshold": 0.23,
+      "tp": 232,
+      "fp": 189,
+      "tn": 311,
+      "fn": 36,
+      "sensitivity": 0.8656716417910447,
+      "specificity": 0.622,
+      "ppv": 0.5510688836104513,
+      "npv": 0.8962536023054755,
+      "accuracy": 0.70703125
+    },
+    "chosen": 0.23
+  },
+  "conformal": {
+    "alpha": 0.1,
+    "n_repeats": 100,
+    "zone_edges_low_below_high_above": [
+      0.18549883233969133,
+      0.5776341048709743
+    ],
+    "coverage_class0_mean": 0.9055000000000001,
+    "coverage_class0_min": 0.78,
+    "coverage_class1_mean": 0.9066666666666664,
+    "coverage_class1_min": 0.7962962962962963,
+    "pct_uncertain_mean": 38.07792207792208,
+    "pct_low_mean": 38.0974025974026,
+    "pct_high_mean": 23.824675324675322,
+    "accuracy_when_committed_mean": 0.8489131992863499,
+    "pct_flagged_followup_mean": 61.902597402597394,
+    "ppv_of_flagged_mean": 0.5145887112428364
+  },
+  "example_patient": {
+    "input": {
+      "Pregnancies": 6.0,
+      "Glucose": 148.0,
+      "BloodPressure": 72.0,
+      "SkinThickness": 35.0,
+      "Insulin": 0.0,
+      "BMI": 33.6,
+      "DiabetesPedigreeFunction": 0.627,
+      "Age": 50.0
+    },
+    "probability": 0.709397906049166,
+    "decision": "High risk",
+    "what_if_uncertain": {
+      "feasible": true,
+      "p_after": 0.5769075076674656,
+      "changes": [
+        {
+          "feature": "Glucose",
+          "from": 148.0,
+          "to": 136.1,
+          "change": -11.900000000000006
+        },
+        {
+          "feature": "BMI",
+          "from": 33.6,
+          "to": 32.1,
+          "change": -1.5
+        }
+      ]
+    },
+    "what_if_low": {
+      "feasible": true,
+      "p_after": 0.1840613370904408,
+      "changes": [
+        {
+          "feature": "Glucose",
+          "from": 148.0,
+          "to": 99.5,
+          "change": -48.5
+        },
+        {
+          "feature": "BMI",
+          "from": 33.6,
+          "to": 27.4,
+          "change": -6.200000000000003
+        }
+      ]
+    }
+  }
+}
