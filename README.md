@@ -215,7 +215,7 @@ print(model.what_if({...}, goal="low")["changes"])
 
 ---
 
-## How the extension works (plain English)
+## How the extension works 
 
 **Conformal prediction.** A normal classifier always says "diabetic" or "not diabetic". Here, the model's predicted probabilities for the training patients are collected out-of-fold (each patient is scored by a model that never saw them). For each class separately we find the probability cut-off that keeps 90% of that class's patients on the right side. A new patient then falls in one of three zones: *Low risk*, *High risk*, or in the overlap, *Uncertain*. The guarantee is distribution-free: it needs no assumption about the model being correct, only that new patients look like the training ones. Doing it per class matters because diabetic patients are only 35% of the data and are the ones we must not miss.
 
