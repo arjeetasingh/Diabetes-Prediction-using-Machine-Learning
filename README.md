@@ -1,4 +1,4 @@
-# Diabetes Prediction, Extended: A Screening Model That Knows When It Is Unsure
+# Diabetes Prediction : A Screening Model That Knows When It Is Unsure
 
 A course project for **CS 403/603 Machine Learning (IIT Indore)**, rebuilt as a complete, tested repository.
 
