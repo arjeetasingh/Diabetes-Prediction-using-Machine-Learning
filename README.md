@@ -1,4 +1,6 @@
-# Diabetes Prediction : A Screening Model That Knows When It Is Unsure
+# Diabetes Prediction, Extended: A Screening Model That Knows When It Is Unsure
+
+A course project for **CS 403/603 Machine Learning (IIT Indore)**, rebuilt as a complete, tested repository.
 
 The original project trained standard classifiers on the PIMA Indians Diabetes dataset (Logistic Regression was best, about 78% accuracy). This repository keeps that work as the **baseline** and adds a **trustworthy-screening extension** on top: a model that says *"uncertain, get a lab test"* instead of guessing, explains each prediction, and shows what would have to change to move a patient's risk.
 
@@ -213,7 +215,7 @@ print(model.what_if({...}, goal="low")["changes"])
 
 ---
 
-## How the extension works 
+## How the extension works (plain English)
 
 **Conformal prediction.** A normal classifier always says "diabetic" or "not diabetic". Here, the model's predicted probabilities for the training patients are collected out-of-fold (each patient is scored by a model that never saw them). For each class separately we find the probability cut-off that keeps 90% of that class's patients on the right side. A new patient then falls in one of three zones: *Low risk*, *High risk*, or in the overlap, *Uncertain*. The guarantee is distribution-free: it needs no assumption about the model being correct, only that new patients look like the training ones. Doing it per class matters because diabetic patients are only 35% of the data and are the ones we must not miss.
 
