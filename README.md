@@ -13,10 +13,10 @@ The original project trained standard classifiers on the PIMA Indians Diabetes d
 | **Baseline** (the original course project) | Original cleaning, Logistic Regression, ROC, forward selection, L1/L2 curves, confusion matrix | `diabetes_ml/baseline.py` |
 | **Honest evaluation** | Same experiment on 200 random splits, repeated cross-validation on identical folds for 5 models, a cleaning ablation, age subgroups | `diabetes_ml/evaluation.py` |
 | **Calibration + screening threshold** | Are the probabilities honest? Which threshold catches 85% of diabetic patients? | `calibration.py`, `thresholds.py` |
-| **Conformal prediction** (new) | Answers *High risk*, *Low risk* or *Uncertain*, with a per-class coverage guarantee | `conformal.py` |
-| **Explanations** (new) | Exact per-patient feature contributions and bootstrap odds ratios | `explain.py` |
-| **What-if analysis** (new) | Smallest change in glucose / BMI / blood pressure that moves the model's answer | `counterfactual.py` |
-| **Web demo** (new) | Enter a patient, get the answer, the reasons and the what-if | `app/streamlit_app.py` |
+| **Conformal prediction**  | Answers *High risk*, *Low risk* or *Uncertain*, with a per-class coverage guarantee | `conformal.py` |
+| **Explanations**  | Exact per-patient feature contributions and bootstrap odds ratios | `explain.py` |
+| **What-if analysis**  | Smallest change in glucose / BMI / blood pressure that moves the model's answer | `counterfactual.py` |
+| **Web demo**  | Enter a patient, get the answer, the reasons and the what-if | `app/streamlit_app.py` |
 
 ---
 
