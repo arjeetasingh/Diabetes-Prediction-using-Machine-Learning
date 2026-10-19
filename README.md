@@ -1,7 +1,5 @@
 # Diabetes Prediction : A Screening Model That Knows When It Is Unsure
 
-A course project for **CS 403/603 Machine Learning (IIT Indore)**, rebuilt as a complete, tested repository.
-
 The original project trained standard classifiers on the PIMA Indians Diabetes dataset (Logistic Regression was best, about 78% accuracy). This repository keeps that work as the **baseline** and adds a **trustworthy-screening extension** on top: a model that says *"uncertain, get a lab test"* instead of guessing, explains each prediction, and shows what would have to change to move a patient's risk.
 
 > **Not a medical device.** This is an educational project on a small public dataset (768 women of Pima heritage, age 21+). Nothing here should be used for real clinical decisions.
