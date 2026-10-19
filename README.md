@@ -1,10 +1,8 @@
-# Diabetes Prediction, Extended: A Screening Model That Knows When It Is Unsure
+# Diabetes Prediction : A Screening Model That Knows When It Is Unsure
 
-A course project for **CS 403/603 Machine Learning (IIT Indore)**, rebuilt as a complete, tested repository.
+A course project for **CS 403/603 Machine Learning (IIT Indore)**
 
-The original project trained standard classifiers on the PIMA Indians Diabetes dataset (Logistic Regression was best, about 78% accuracy). This repository keeps that work as the **baseline** and adds a **trustworthy-screening extension** on top: a model that says *"uncertain, get a lab test"* instead of guessing, explains each prediction, and shows what would have to change to move a patient's risk.
-
-> **Not a medical device.** This is an educational project on a small public dataset (768 women of Pima heritage, age 21+). Nothing here should be used for real clinical decisions.
+The original project trained standard classifiers on the PIMA Indians Diabetes dataset (Logistic Regression was best, about 78% accuracy). This repository keeps that work as the **baseline** and adds a **screening extension** on top: a model that predicts *"uncertain"* instead of guessing, explains each prediction, and shows what would have to change to move a patient's risk.
 
 ---
 
@@ -177,7 +175,7 @@ Needs Python 3.10 or newer.
 
 ```bash
 # 1. get the code and enter the folder
-git clone https://github.com/<your-username>/diabetes-trustworthy-screening.git
+git clone https://github.com/<arjeetasingh>/diabetes-trustworthy-screening.git
 cd diabetes-trustworthy-screening
 
 # 2. create an isolated environment and install
